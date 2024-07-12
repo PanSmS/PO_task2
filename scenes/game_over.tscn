@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch2q8ivlugg5w"]
+
+[ext_resource type="Script" path="res://scenes/game_over.gd" id="1_hp77v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pls0n"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_824jm"]
+bg_color = Color(0.775384, 0.546763, 0.292178, 1)
+shadow_color = Color(0.815003, 0.000127907, 7.01746e-05, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0b7m"]
+bg_color = Color(0.753426, 0.558994, 0.300021, 1)
+
+[node name="GameOver" type="CanvasLayer"]
+script = ExtResource("1_hp77v")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pls0n")
+
+[node name="Results" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -85.0
+offset_right = 90.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.3, 1.3)
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Restart" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = 25.0
+offset_right = 46.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.1, 1.1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_824jm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_d0b7m")
+text = "PLAY AGAIN"
+flat = true
+icon_alignment = 1
+
+[connection signal="pressed" from="Restart" to="." method="_on_restart_pressed"]
